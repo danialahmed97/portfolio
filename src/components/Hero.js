@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="fade-in">Hi, I'm <span className="highlight">Danial</span></h1>
-          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>Software Engineer at <a href='www.servicenow.com' style={{textDecoration: 'none'}}><span style={{ color: '#81B5A1' }}>ServiceNow</span></a></h2>
+          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>Software Engineer at <a href='https://www.servicenow.com' style={{textDecoration: 'none'}}><span style={{ color: '#81B5A1' }}>ServiceNow</span></a></h2>
           <p className="fade-in hero-description" style={{ animationDelay: '0.4s' }}>
             I am a full-stack developer with 4 years of experience building scalable applications and cloud solutions.
           </p>
