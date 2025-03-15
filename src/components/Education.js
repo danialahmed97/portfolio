@@ -27,7 +27,7 @@ const Education = () => {
       period: '2015 - 2017',
       achievements: [
         '7th rank in 11th standard',
-        '92% in the 12 standard'
+        '92% in the 12th standard'
       ]
     },
     {
@@ -38,7 +38,7 @@ const Education = () => {
       location: 'Silchar, Assam',
       period: '2017 - 2021',
       achievements: [
-        'Graduated with 8.5 CGPA in Computer Science',
+        'Graduated with 8.5 CGPA in Computer Science and Engineering',
       ]
     }
   ];
