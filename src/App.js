@@ -61,8 +61,8 @@ function App() {
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Hero />
       <About />
-      <Experience />
       <Education />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />

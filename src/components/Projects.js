@@ -20,7 +20,7 @@ const Projects = () => {
     {
       id: 2,
       title: 'Currency Converter',
-      description: 'Any currency to INR converter.',
+      description: 'Any currency to any currency converter.',
       image: getImagePath('exchange.jpeg'),
       category: 'web',
       technologies: ['JavaScript', 'API Integration', 'React','HTML'],
