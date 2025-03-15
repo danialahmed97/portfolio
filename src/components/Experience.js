@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 import './Experience.css';
+import { getImagePath } from '../utils';
 
 const Experience = () => {
   const experiences = [
@@ -8,7 +9,7 @@ const Experience = () => {
       id: 1,
       title: 'Software Engineer',
       company: 'UnitedHealth Group',
-      logo: '/uhg-logo.jpg', // Add your company logo file here
+      logo: getImagePath('uhg-logo.jpg'), // Add your company logo file here
       location: 'Hyderabad, India',
       period: 'Jun 2021 - Jun 2022',
       description: 'Worked on backend and full-stack development using Java, JavaScript, React.js, Node.js, Kafka, MySQL, and AWS to build scalable applications, optimize performance, and enhance user experience.',
@@ -22,7 +23,7 @@ const Experience = () => {
       id: 2,
       title: 'Senior Software Engineer',
       company: 'Oracle',
-      logo: '/oracle.jpg', // Add your company logo file here
+      logo: getImagePath('oracle.jpg'), // Add your company logo file here
       location: 'Hyderabad, India',
       period: 'Jun 2022 - Dec 2024',
       description: 'Worked on Oracle HCM SaaS, focusing on system scalability, microservices optimization, and AI integration using Java, C++, Spring Boot, Kafka, JavaScript, OCI, and Generative AI. Improved system efficiency, user experience, and cloud infrastructure.',
@@ -36,7 +37,7 @@ const Experience = () => {
       id: 3,
       title: 'Software Engineer',
       company: 'ServiceNow',
-      logo: '/snow.png', // Add your company logo file here
+      logo: getImagePath('snow.png'), // Add your company logo file here
       location: 'Remote, India',
       period: 'Dec 2018 - Present',
       description: 'Worked on cloud observability and automation, leveraging JavaScript, Kubernetes, Prometheus, Grafana, Thanos, and SQL to enhance monitoring and streamline testing workflows.',

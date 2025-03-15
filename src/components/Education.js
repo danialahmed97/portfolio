@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGraduationCap, FaCalendarAlt, FaMedal } from 'react-icons/fa';
 import './Education.css';
+import { getImagePath } from '../utils';
 
 const Education = () => {
   const educations = [
@@ -8,7 +9,7 @@ const Education = () => {
       id: 1,
       degree: "High School",
       institution: "Saint Mary's School",
-      logo: '/sms.jpg', // Add your institution logo here
+      logo: getImagePath('sms.jpg'), // Add your institution logo here
       location: 'Hailakandi, Assam',
       period: '2005-2015',
       achievements: [
@@ -21,7 +22,7 @@ const Education = () => {
       id: 2,
       degree: 'Higher Secondary',
       institution: 'Ramanuj Gupta JC',
-      logo: '/rgjc.jpg', // Add your institution logo here
+      logo: getImagePath('rgjc.jpg'), // Add your institution logo here
       location: 'Silchar, Assam',
       period: '2015 - 2017',
       achievements: [
@@ -33,7 +34,7 @@ const Education = () => {
       id: 3,
       degree: 'B.Technology',
       institution: 'NIT Silchar',
-      logo: '/nits.png', // Add your institution logo here
+      logo: getImagePath('nits.png'), // Add your institution logo here
       location: 'Silchar, Assam',
       period: '2017 - 2021',
       achievements: [

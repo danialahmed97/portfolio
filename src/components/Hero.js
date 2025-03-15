@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import './Hero.css';
+import { getImagePath } from '../utils';
 
 const Hero = () => {
 
@@ -14,7 +15,7 @@ const Hero = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="fade-in">Hi, I'm <span className="highlight">Danial</span></h1>
-          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>Software Engineer at <a href='https://www.servicenow.com' style={{textDecoration: 'none'}}><span style={{ color: '#81B5A1' }}>ServiceNow</span></a></h2>
+          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>Software Engineer at <a href='https://www.servicenow.com' target="_blank" style={{textDecoration: 'none'}}><span style={{ color: '#81B5A1' }}>ServiceNow</span></a></h2>
           <p className="fade-in hero-description" style={{ animationDelay: '0.4s' }}>
             I am a full-stack developer with 4 years of experience building scalable applications and cloud solutions.
           </p>
@@ -30,7 +31,7 @@ const Hero = () => {
         </div>
         <div className="hero-image fade-in" style={{ animationDelay: '1s' }}>
           <div className="profile-img">
-            <img src="/photo.jpg" alt="Profile" className="profile-placeholder" />
+            <img src={getImagePath('photo.jpg')} alt="Profile" className="profile-placeholder" />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import { getImagePath } from '../utils';
 
 const About = () => {
   return (
@@ -9,7 +10,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-image">
             <div className="about-img-container">
-              <img src="/danial.jpg" alt="Profile" className="about-placeholder" />
+              <img src={getImagePath('danial.jpg')} alt="Profile" className="about-placeholder" />
             </div>
           </div>
           <div className="about-text">
@@ -31,7 +32,7 @@ const About = () => {
                 <strong>Location:</strong> Hailakandi, Assam, India
               </div>
             </div>
-            <a href="/danial_resume.pdf" className="btn" download>Download Resume</a>
+            <a href={getImagePath('danial_resume.pdf')} className="btn" download>Download Resume</a>
           </div>
         </div>
       </div>

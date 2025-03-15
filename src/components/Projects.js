@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import './Projects.css';
+import { getImagePath } from '../utils';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -10,7 +11,7 @@ const Projects = () => {
       id: 1,
       title: 'Linked List Cycle Detection Visualizer',
       description: 'An interactive fun portal to visualize cycle detection in a linked list',
-      image: '/ll.png',
+      image: getImagePath('ll.png'),
       category: 'web',
       technologies: ['Javascript', 'HTML', 'CSS'],
       github: 'https://github.com/danialahmed97/ll-cycle-detection',
@@ -20,7 +21,7 @@ const Projects = () => {
       id: 2,
       title: 'Currency Converter',
       description: 'Any currency to INR converter.',
-      image: '/converter.png',
+      image: getImagePath('converter.png'),
       category: 'web',
       technologies: ['JavaScript', 'API Integration', 'React','HTML'],
       github: 'https://github.com/danialahmed97/anyCurrencyToINRconverter',
@@ -30,7 +31,7 @@ const Projects = () => {
       id: 3,
       title: 'Piano Visualizer',
       description: 'A fun piano visualizer using keyboard.',
-      image: '/keypad.jpeg',
+      image: getImagePath('keypad.jpeg'),
       category: 'web',
       technologies: ['React', 'CSS', 'Javascript','HTML'],
       github: 'https://github.com/danialahmed97/keypad_music_app',
