@@ -39,7 +39,7 @@ const Experience = () => {
       company: 'ServiceNow',
       logo: getImagePath('snow.png'), // Add your company logo file here
       location: 'Remote, India',
-      period: 'Dec 2018 - Present',
+      period: 'Dec 2024 - Present',
       description: 'Worked on cloud observability and automation, leveraging JavaScript, Kubernetes, Prometheus, Grafana, Thanos, and SQL to enhance monitoring and streamline testing workflows.',
       achievements: [
         'Centralized Observability: Set up a unified monitoring system for all dependent clusters, ensuring seamless cloud operations.',
