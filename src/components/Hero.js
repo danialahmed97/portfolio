@@ -4,20 +4,28 @@ import './Hero.css';
 import { getImagePath } from '../utils';
 
 const Hero = () => {
-
-    // Force scroll to top when Hero component mounts
-    React.useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);  
-
+  // Force scroll to top when Hero component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  // Calculate years of experience dynamically
+  const yearsOfExperience = Math.floor(
+    (new Date() - new Date('2020-06-01')) / (1000 * 60 * 60 * 24 * 365.25)
+  );
+  
   return (
     <section id="home" className="hero">
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="fade-in">Hi, I'm <span className="highlight">Danial</span></h1>
-          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>Software Engineer at <a href='https://www.servicenow.com' target="_blank" style={{textDecoration: 'none'}}><span style={{ color: '#81B5A1' }}>ServiceNow</span></a></h2>
+          <h2 className="fade-in" style={{ animationDelay: '0.2s' }}>
+            Software Engineer at <a href='https://www.servicenow.com' target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none'}}>
+              <span style={{ color: '#81B5A1' }}>ServiceNow</span>
+            </a>
+          </h2>
           <p className="fade-in hero-description" style={{ animationDelay: '0.4s' }}>
-            I am a full-stack developer with 4 years of experience building scalable applications and cloud solutions.
+            I am a Software developer with {yearsOfExperience} years of experience building scalable applications, AI and cloud solutions.
           </p>
           <div className="hero-btns fade-in" style={{ animationDelay: '0.6s' }}>
             <a href="#projects" className="btn">View My Work</a>
@@ -31,7 +39,7 @@ const Hero = () => {
         </div>
         <div className="hero-image fade-in" style={{ animationDelay: '1s' }}>
           <div className="profile-img">
-            <img src={getImagePath('photo.jpg')} alt="Profile" className="profile-placeholder" />
+            <img src={getImagePath('pfp.jpeg')} alt="Profile" className="profile-placeholder" />
           </div>
         </div>
       </div>
