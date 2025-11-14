@@ -25,7 +25,7 @@ const Hero = () => {
             </a>
           </h2>
           <p className="fade-in hero-description" style={{ animationDelay: '0.4s' }}>
-            I am a Software developer with {yearsOfExperience} years of experience building scalable applications, AI and cloud solutions.
+            I am a Techie with {yearsOfExperience} years of experience building scalable applications, AI and cloud solutions.
           </p>
           <div className="hero-btns fade-in" style={{ animationDelay: '0.6s' }}>
             <a href="#projects" className="btn">View My Work</a>
