@@ -9,7 +9,7 @@ const Education = () => {
       id: 1,
       degree: "High School",
       institution: "Saint Mary's School",
-      logo: getImagePath('sms.jpg'), // Add your institution logo here
+      logo: getImagePath('sms.jpg'),
       location: 'Hailakandi, Assam',
       period: '2005-2015',
       achievements: [
@@ -22,7 +22,7 @@ const Education = () => {
       id: 2,
       degree: 'Higher Secondary',
       institution: 'Ramanuj Gupta JC',
-      logo: getImagePath('rgjc.jpg'), // Add your institution logo here
+      logo: getImagePath('rgjc.jpg'),
       location: 'Silchar, Assam',
       period: '2015 - 2017',
       achievements: [
@@ -32,13 +32,24 @@ const Education = () => {
     },
     {
       id: 3,
-      degree: 'B.Technology',
+      degree: 'B.Tech in CSE',
       institution: 'NIT Silchar',
-      logo: getImagePath('nits.png'), // Add your institution logo here
+      logo: getImagePath('nits.png'),
       location: 'Silchar, Assam',
       period: '2017 - 2021',
       achievements: [
         'Graduated with 8.5 CGPA in Computer Science and Engineering',
+      ]
+    },
+    {
+      id: 4,
+      degree: 'M.Tech in AI & ML',
+      institution: 'BITS Pilani',
+      logo: getImagePath('bits.png'),
+      location: 'Pilani, Rajasthan',
+      period: '2025 - 2027',
+      achievements: [
+        'Currently pursuing Masters in Artificial Intelligence and Machine Learning',
       ]
     }
   ];
