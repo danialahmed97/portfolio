@@ -19,6 +19,7 @@ const Header = () => {
         <a href="#home" className="header-logo">Danial.</a>
 
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
+          <button className="nav-close" onClick={close} aria-label="Close menu">✕</button>
           <a href="#about"   onClick={close}>About</a>
           <a href="#work"    onClick={close}>Work</a>
           <a href="#contact" onClick={close}>Contact</a>
