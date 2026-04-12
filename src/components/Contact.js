@@ -1,164 +1,140 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import useReveal from '../hooks/useReveal';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  
-  const [submitted, setSubmitted] = useState(false);
+  const [ref, visible] = useReveal();
+  const [form, setForm]     = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | done | error
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
+    setForm(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Prepare template parameters
-    const templateParams = {
-      to_email: 'danial.nits.cse@gmail.com',
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message
-    };
-    
-    // Send email using EmailJS
+    setStatus('sending');
     emailjs.send(
-      'service_p5zppco',     // Create a service on EmailJS dashboard
-      'template_uskmtge',    // Create an email template on EmailJS
-      templateParams,
-      'lftkSeqOYBIz08uTz'      // Your EmailJS public key
+      'service_p5zppco',
+      'template_uskmtge',
+      {
+        to_email:  'danial.nits.cse@gmail.com',
+        from_name: form.name,
+        from_email: form.email,
+        message:   form.message,
+      },
+      'lftkSeqOYBIz08uTz'
     )
-      .then((response) => {
-        console.log('Email sent successfully:', response);
-        setSubmitted(true);
-        
-        // Reset form after submission
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-          });
-          setSubmitted(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        console.error('Failed to send email:', error);
-        // If you want error handling, add this state variable to your component
-        // const [error, setError] = useState(null);
-        // Or just use an alert instead
-        alert('Failed to send email. Please try again later.');
-      })
-      .finally(() => {
-        // If using loading state (optional)
-        // setLoading(false);
-      });
+    .then(() => {
+      setStatus('done');
+      setForm({ name: '', email: '', message: '' });
+    })
+    .catch(() => setStatus('error'));
   };
 
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
-        <div className="contact-container">
-          <div className="contact-info">
-            <h3>Let's talk about everything!</h3>
-            <p>
-              Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+        <div className={`contact-inner reveal ${visible ? 'visible' : ''}`} ref={ref}>
+
+          <div className="contact-left">
+            <span className="section-label">Get in touch</span>
+            <h2 className="contact-title">
+              Let's build<br />
+              <span className="gold">something real.</span>
+            </h2>
+            <div className="gold-line" />
+            <p className="contact-desc">
+              Whether you have a project in mind, a problem to solve,
+              or just want to say salaam — I'm here.
             </p>
-            <div className="contact-details">
-              <div className="contact-detail">
-                <div className="contact-icon">
-                  <FaEnvelope />
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <p>danial.nits.cse@gmail.com</p>
-                </div>
-              </div>
-              <div className="contact-detail">
-                <div className="contact-icon">
-                  <FaPhone />
-                </div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>+91 9435089958</p>
-                </div>
-              </div>
-              <div className="contact-detail">
-                <div className="contact-icon">
-                  <FaMapMarkerAlt />
-                </div>
-                <div>
-                  <h4>Location</h4>
-                  <p>Hailakandi, Assam, India</p>
-                </div>
-              </div>
+
+            <div className="contact-links">
+              <a href="mailto:danial.nits.cse@gmail.com" className="contact-link">
+                <span className="cl-label">Email</span>
+                <span className="cl-value">danial.nits.cse@gmail.com</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/danialbarbhuiya/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link"
+              >
+                <span className="cl-label">LinkedIn</span>
+                <span className="cl-value">danialbarbhuiya</span>
+              </a>
+              <a
+                href="https://github.com/Danial1998"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link"
+              >
+                <span className="cl-label">GitHub</span>
+                <span className="cl-value">Danial1998</span>
+              </a>
             </div>
           </div>
-          <div className="contact-form">
-            {submitted ? (
-              <div className="form-success">
-                <h3>Thank you!</h3>
-                <p>Your message has been sent successfully.</p>
+
+          <div className="contact-form-wrap">
+            {status === 'done' ? (
+              <div className="contact-success">
+                <span className="success-icon">✓</span>
+                <h3>Message sent.</h3>
+                <p>I'll get back to you soon, inshallah.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
+              <form onSubmit={handleSubmit} className="contact-form">
+                <div className="form-row">
+                  <div className="form-field">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="your@email.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
+                <div className="form-field">
+                  <label>Message</label>
                   <textarea
                     name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
+                    placeholder="Tell me what's on your mind..."
+                    value={form.message}
                     onChange={handleChange}
                     required
-                  ></textarea>
+                    rows={5}
+                  />
                 </div>
-                <button type="submit" className="btn">Send Message</button>
+                {status === 'error' && (
+                  <p className="form-error">Something went wrong. Try emailing directly.</p>
+                )}
+                <button
+                  type="submit"
+                  className="btn-primary contact-submit"
+                  disabled={status === 'sending'}
+                >
+                  {status === 'sending' ? 'Sending…' : 'Send Message →'}
+                </button>
               </form>
             )}
           </div>
+
         </div>
       </div>
     </section>
